@@ -10,7 +10,8 @@ public class SpawnTower : MonoBehaviour
         {
             TowersController.instance.IncreaseTowersCount();
             transform.parent.GetChild(1).gameObject.SetActive(true);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
     }
 }
