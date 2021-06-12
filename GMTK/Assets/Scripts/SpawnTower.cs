@@ -6,7 +6,11 @@ public class SpawnTower : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        transform.parent.GetChild(1).gameObject.SetActive(true);
-        Destroy(gameObject);
+        if (TowersController.instance.CanSpawnTower())
+        {
+            TowersController.instance.IncreaseTowersCount();
+            transform.parent.GetChild(1).gameObject.SetActive(true);
+            Destroy(gameObject);
+        }
     }
 }
