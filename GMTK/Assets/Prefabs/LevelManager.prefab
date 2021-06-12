@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208206c9ab5835448821ba3cf313f0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStats: {fileID: 0}
+  _playerStats: {fileID: 6952930987734051202}
 --- !u!1 &6952930987536674811
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +226,6 @@ MonoBehaviour:
       damage: 1
       delayBetweenSpawn: 0.2
     timeToNext: 60
-  _timer: 0
   startPoint: {fileID: 6952930988257749093}
   levelPath:
   - {fileID: 6952930987579490666}
