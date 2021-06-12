@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float HP;
+  
     private Transform target;
     private List<Transform> levelPath;
 
@@ -13,11 +15,11 @@ public class Enemy : MonoBehaviour
     private float _hp = 100f;
     private float _maxHP;
     private int _damage = 1;
+
     void Start()
     {
         _maxHP = _hp;
     }
-
 
     void Update()
     {
@@ -27,10 +29,21 @@ public class Enemy : MonoBehaviour
     private void Move()
     {
         if (Vector2.Distance(transform.position, target.position) < 0.3f)
-        {
             ChangeTarget();
-        }
+
         transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Bullet"))
+        {
+            HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
+            collision.gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
+            if (HP <= 0)
+                Destroy(gameObject);
+        }          
     }
 
     private void ChangeTarget()
