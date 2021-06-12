@@ -1131,16 +1131,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1167064613}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+      propertyPath: waves.Array.data[0].timeToNext
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].enemySpeed
-      value: 5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[1].enemySpeed
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[1].enemies.Array.data[0].enemySpeed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+      propertyPath: waves.Array.data[0].enemies.Array.data[0].delayBetweenSpawn
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+      propertyPath: waves.Array.data[0].enemies.Array.data[1].delayBetweenSpawn
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051205, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: m_Name
