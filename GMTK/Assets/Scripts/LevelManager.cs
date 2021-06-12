@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
 {
     public List<Wave> waves = new List<Wave>();
     private int currentWave = 0;
-    public float _timer;
+    private float _timer;
     public Transform startPoint;
     public List<Transform> levelPath;
     void Start()
