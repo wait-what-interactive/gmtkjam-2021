@@ -56,19 +56,21 @@ public class Tower : MonoBehaviour
     {
         float minDistance = 100;
         Vector2 minDistancePosition = Vector2.zero;
+        Transform turget=null;
 
         foreach(var enemy in enemies)
             if(minDistance > Vector3.Distance(enemy.transform.position, transform.position))
             {
                 minDistance = Vector3.Distance(enemy.transform.position, transform.position);
                 minDistancePosition = enemy.transform.position;
+                turget = enemy.transform;
             }
 
         minDistancePosition = (minDistancePosition - (Vector2)transform.position).normalized;
 
         GameObject bulletGO = GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().getBullet();
         bulletGO.transform.position = transform.position;
+        bulletGO.GetComponent<Bullet>().setTurget(turget);
         bulletGO.SetActive(true);
-        bulletGO.GetComponent<Bullet>().setDirection(minDistancePosition);
     }
 }
