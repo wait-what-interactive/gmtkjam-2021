@@ -19,17 +19,14 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (_hp - damage < 0)
+        {
             _hp = 0;
-        else
-            _hp -= damage;
-
-        if (_hp > 0)
-            healthBar.fillAmount = (float)_hp / _maxHP;
-        else
-            healthBar.fillAmount = 0;
-
-        Debug.Log("percentage: " + (float)_hp / _maxHP);
-        if (_hp <= 0f)
             Debug.Log("Game over handler here!");
+            healthBar.fillAmount = 0;
+            return;
+        }
+
+        _hp -= damage;
+        healthBar.fillAmount = (float)_hp / _maxHP;
     }
 }
