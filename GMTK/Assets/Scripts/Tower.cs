@@ -17,7 +17,7 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("enemy"))
+        if(collision.CompareTag("Enemy"))
         {
             enemies.Add(collision.gameObject);
             if (shootController == null)
@@ -30,7 +30,7 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("enemy"))
+        if (collision.CompareTag("Enemy"))
         {
             if (enemies.Count > 0)
                 enemies.Remove(collision.gameObject);
@@ -66,7 +66,7 @@ public class Tower : MonoBehaviour
 
         minDistancePosition = (minDistancePosition - (Vector2)transform.position).normalized;
 
-        GameObject bulletGO = GameObject.FindGameObjectWithTag("bullet_container").GetComponent<BulletPull>().getBullet();
+        GameObject bulletGO = GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().getBullet();
         bulletGO.transform.position = transform.position;
         bulletGO.SetActive(true);
         bulletGO.GetComponent<Bullet>().setDirection(minDistancePosition);

@@ -21,7 +21,6 @@ public class Enemy : MonoBehaviour
         _maxHP = _hp;
     }
 
-
     void Update()
     {
         Move();
@@ -37,11 +36,11 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("bullet"))
+        if(collision.CompareTag("Bullet"))
         {
             HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
             collision.gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("bullet_container").GetComponent<BulletPull>().addBullet(collision.gameObject);
+            GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
                 Destroy(gameObject);
         }          
