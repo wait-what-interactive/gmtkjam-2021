@@ -89,4 +89,8 @@ public class LevelManager : MonoBehaviour
         currentWave++;
     }
 
+    public int GetWavesNumber()
+    {
+        return waves.Count;
+    }
 }
