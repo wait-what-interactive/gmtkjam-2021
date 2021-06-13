@@ -38,7 +38,11 @@ public class MagicZonesController : MonoBehaviour
                 magicZones[i].wasJoined = true;
                 //print("is combination");
                 for (int j = 0; j < magicZones[i].towers.Count; ++j)
+                {
                     magicZones[i].towers[j].transform.GetChild(1).GetComponent<Tower>().isInZone = true;
+                    magicZones[i].towers[j].transform.GetChild(1).GetComponent<SpriteRenderer>().color =
+                        magicZones[i].towers[j].transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().color;
+                }        
             }
             else
             {
@@ -47,7 +51,10 @@ public class MagicZonesController : MonoBehaviour
                     magicZones[i].wasJoined = false;
                     //print("combination died");
                     for (int j = 0; j < magicZones[i].towers.Count; ++j)
+                    {
                         magicZones[i].towers[j].transform.GetChild(1).GetComponent<Tower>().isInZone = false;
+                        magicZones[i].towers[j].transform.GetChild(1).GetComponent<SpriteRenderer>().color = Color.white;
+                    }    
                 }
             }
         }
