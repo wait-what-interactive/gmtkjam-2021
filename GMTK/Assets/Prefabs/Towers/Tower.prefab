@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6138432419222335086}
   - component: {fileID: 8178261321864426898}
-  - component: {fileID: 5220800095760203854}
+  - component: {fileID: 5607556995261626135}
   m_Layer: 0
   m_Name: fire
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5220800095760203854
+--- !u!95 &5607556995261626135
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 3025618476485441867}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d35d6ab8b634a484a9313cd82e6ea60e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2c16f8e1ade7a474d859767aead46d17, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
