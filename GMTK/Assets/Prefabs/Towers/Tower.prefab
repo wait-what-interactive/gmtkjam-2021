@@ -410,3 +410,4 @@ MonoBehaviour:
   koefColorToOtherColor: 0
   damage: 25
   curColor: white
+  isInZone: 0
