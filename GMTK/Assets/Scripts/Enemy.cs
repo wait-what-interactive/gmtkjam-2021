@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
+            collision.gameObject.GetComponent<Bullet>().setTurget(null);
             collision.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
