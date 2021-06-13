@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField]
     float damage;
-    float speed = 5;
+    public float speed = 10;
     Transform turget;
 
     private Vector2 dir;
@@ -28,6 +28,11 @@ public class Bullet : MonoBehaviour
     public float getDamage()
     {
         return damage;
+    }
+
+    public void setDamage(float value)
+    {
+        damage = value;
     }
 
     public void setTurget(Transform turg)

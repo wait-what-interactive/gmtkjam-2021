@@ -14,6 +14,10 @@ public class Tower : MonoBehaviour
     public float koefBlackToColor = 0.5f;
     public float koefColorToOtherColor = 0f;
 
+    public float damage = 25;
+
+    public string curColor;
+
     bool isInZone = false;
 
     void Start()
@@ -86,23 +90,23 @@ public class Tower : MonoBehaviour
 
             Bullet bul = bulletGO.GetComponent<Bullet>();
 
-            Color curColor = GetComponent<SpriteRenderer>().color;
+            //Color curColor = ;
 
-            if (curColor == Color.white)
-                bul.setDamage(bul.getDamage() * koefBlackToColor);
+            if (curColor == "white")
+                bul.setDamage(damage * koefBlackToColor);
             else
             {
                 if (curColor == target.GetComponent<Enemy>().getColor())
-                    bul.setDamage(bul.getDamage() * koefColorToSameColor);
+                    bul.setDamage(damage * koefColorToSameColor);
                 else
-                    bul.setDamage(bul.getDamage() * koefColorToOtherColor);
+                    bul.setDamage(damage * koefColorToOtherColor);
             }
 
             if(isInZone)
-                bul.setDamage(bul.getDamage() * koefInZone);
+                bul.setDamage(damage * koefInZone);
 
             bul.setTurget(target);
-            bulletGO.GetComponent<SpriteRenderer>().color = curColor;
+            bulletGO.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
             bulletGO.SetActive(true);
         }
     }
