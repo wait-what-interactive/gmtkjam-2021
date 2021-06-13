@@ -55,7 +55,18 @@ public class Enemy : MonoBehaviour
             collision.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
+            {
+                LevelManager.enemyCount -= 1;
+
+                //next level
+                if(LevelManager.enemyCount==0)
+                {
+                    print("win");
+                }
+
+
                 Destroy(gameObject);
+            }        
         }
     }
 

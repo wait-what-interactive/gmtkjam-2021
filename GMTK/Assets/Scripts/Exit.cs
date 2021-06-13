@@ -18,6 +18,7 @@ public class Exit : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
             _playerStats.TakeDamage(enemy.GetDamage());
             Destroy(other.gameObject);
+            LevelManager.enemyCount -= 1;
             ps.Play();
         }
     }

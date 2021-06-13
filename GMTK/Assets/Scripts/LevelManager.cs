@@ -30,12 +30,22 @@ public class LevelManager : MonoBehaviour
     public Transform startPoint;
     public List<Transform> levelPath;
 
+    int waveCount;
+
+    public static int enemyCount = 0;
     private ParticleSystem portalParticles;
 
     void Start()
     {
         portalParticles = startPoint.GetComponentInChildren<ParticleSystem>();
         _timer = waves[currentWave]?.timeToNext ?? 60f;
+        waveCount = waves.Count;
+        for(int i=0; i < waves.Count;++i)
+        {
+            for (int j = 0; j < waves[i].enemies.Count; ++j)
+                enemyCount += waves[i].enemies[j].count;
+        }
+
         StartCoroutine(MakeWave());
 
     }
