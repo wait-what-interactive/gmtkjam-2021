@@ -344,7 +344,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 26810b31bc29273459bf828f9af2dd6a, type: 3}
-  m_Color: {r: 0.654902, g: 0.8352942, b: 0.5411765, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -410,3 +410,4 @@ MonoBehaviour:
   koefColorToOtherColor: 0
   damage: 25
   curColor: green
+  isInZone: 0

@@ -12,6 +12,7 @@ public class SpawnTower : MonoBehaviour
             transform.parent.GetChild(1).gameObject.SetActive(true);
             gameObject.SetActive(false);
             //Destroy(gameObject);
+            GameObject.FindGameObjectWithTag("MagicZone").GetComponent<MagicZonesController>().CheckZones();
         }
     }
 }

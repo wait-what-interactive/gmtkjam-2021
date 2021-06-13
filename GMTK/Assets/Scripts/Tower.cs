@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
 
     public string curColor;
 
-    bool isInZone = false;
+    public bool isInZone = false;
 
     void Start()
     {
@@ -90,8 +90,6 @@ public class Tower : MonoBehaviour
 
             Bullet bul = bulletGO.GetComponent<Bullet>();
 
-            //Color curColor = ;
-
             if (curColor == "white")
                 bul.setDamage(damage * koefBlackToColor);
             else
@@ -103,7 +101,7 @@ public class Tower : MonoBehaviour
             }
 
             if(isInZone)
-                bul.setDamage(damage * koefInZone);
+                bul.setDamage(bul.getDamage() * koefInZone);
 
             bul.setTurget(target);
             bulletGO.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
@@ -119,6 +117,7 @@ public class Tower : MonoBehaviour
             TowersController.instance.DecreaseTowersCount();
             transform.parent.GetChild(0).gameObject.SetActive(true);
             gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("MagicZone").GetComponent<MagicZonesController>().CheckZones();
         }
     }
 }
