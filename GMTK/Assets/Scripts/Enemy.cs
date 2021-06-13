@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
 
     public Color color;
 
+    private bool onEnd = false;
+
     void Start()
     {
         _maxHP = _hp;
@@ -35,7 +37,8 @@ public class Enemy : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) < 0.3f)
             ChangeTarget();
 
-        transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
+        if(!onEnd)
+            transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,8 +56,13 @@ public class Enemy : MonoBehaviour
 
     private void ChangeTarget()
     {
-        currentMovePoint += 1;
-        target = levelPath[currentMovePoint];
+        if (currentMovePoint != levelPath.Count - 1)
+        {
+            currentMovePoint += 1;
+            target = levelPath[currentMovePoint];
+            return;
+        }
+        onEnd = true;
     }
 
     public void SetLevelPath(List<Transform> lp)
