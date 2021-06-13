@@ -13,8 +13,16 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        dir = ((Vector2)turget.position - (Vector2)transform.position).normalized;
-        transform.Translate(dir * Time.deltaTime * speed);
+        if(turget != null)
+        {
+            dir = ((Vector2)turget.position - (Vector2)transform.position).normalized;
+            transform.Translate(dir * Time.deltaTime * speed);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(gameObject);
+        }
     }
 
     public float getDamage()

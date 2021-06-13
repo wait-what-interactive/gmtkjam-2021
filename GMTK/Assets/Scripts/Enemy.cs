@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float HP;
-  
+
     private Transform target;
     private List<Transform> levelPath;
 
@@ -16,9 +16,15 @@ public class Enemy : MonoBehaviour
     private float _maxHP;
     private int _damage = 1;
 
+    public Color color;
+
+    private bool onEnd = false;
+
     void Start()
     {
         _maxHP = _hp;
+        int childCount = transform.GetChild(0).childCount;
+        color = transform.GetChild(0).GetChild(childCount - 1).GetComponent<SpriteRenderer>().color;
     }
 
     void Update()
@@ -31,25 +37,32 @@ public class Enemy : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) < 0.3f)
             ChangeTarget();
 
-        transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
+        if(!onEnd)
+            transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Bullet"))
+        if (collision.CompareTag("Bullet"))
         {
             HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
+            collision.gameObject.GetComponent<Bullet>().setTurget(null);
             collision.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
                 Destroy(gameObject);
-        }          
+        }
     }
 
     private void ChangeTarget()
     {
-        currentMovePoint += 1;
-        target = levelPath[currentMovePoint];
+        if (currentMovePoint != levelPath.Count - 1)
+        {
+            currentMovePoint += 1;
+            target = levelPath[currentMovePoint];
+            return;
+        }
+        onEnd = true;
     }
 
     public void SetLevelPath(List<Transform> lp)
