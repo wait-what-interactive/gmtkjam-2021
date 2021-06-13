@@ -69,6 +69,11 @@ public class Enemy : MonoBehaviour
         return _damage;
     }
 
+    public Color getColor()
+    {
+        return color;
+    }
+
     public void SetStats(int damage, float speed, float hp)
     {
         _hp = hp;

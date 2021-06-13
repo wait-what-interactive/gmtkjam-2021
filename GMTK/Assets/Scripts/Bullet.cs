@@ -30,6 +30,11 @@ public class Bullet : MonoBehaviour
         return damage;
     }
 
+    public void setDamage(float value)
+    {
+        damage = value;
+    }
+
     public void setTurget(Transform turg)
     {
         turget = turg;
