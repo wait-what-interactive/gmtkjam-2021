@@ -16,7 +16,8 @@ public class Bullet : MonoBehaviour
         if(turget != null)
         {
             dir = ((Vector2)turget.position - (Vector2)transform.position).normalized;
-            transform.Translate(dir * Time.deltaTime * speed);
+            //transform.Translate(dir * Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, turget.position, Time.deltaTime * speed);
         }
         else
         {
