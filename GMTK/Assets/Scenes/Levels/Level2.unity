@@ -6655,6 +6655,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1167064613}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+      propertyPath: waves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: levelPath.Array.size
       value: 7
       objectReference: {fileID: 0}
@@ -6677,7 +6681,7 @@ PrefabInstance:
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 531246890909195931, guid: efb55d7d0b247cd4984fcbabb4f88283, type: 3}
+      objectReference: {fileID: 531246890909195931, guid: ceb8f36f58296e3448b2cf7323da72ab, type: 3}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[1].prefab
       value: 
@@ -6696,15 +6700,15 @@ PrefabInstance:
       objectReference: {fileID: 531246890909195931, guid: ceb8f36f58296e3448b2cf7323da72ab, type: 3}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].color.b
-      value: 0.78823537
+      value: 0.54901963
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].color.g
-      value: 0.654902
+      value: 0.91372555
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].color.r
-      value: 0.5372549
+      value: 0.9176471
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[1].color.b
