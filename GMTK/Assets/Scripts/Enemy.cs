@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
                 //next level
                 if(LevelManager.enemyCount==0)
                 {
-                    print("win");
+                    GameObject.FindGameObjectWithTag("wintext").SetActive(true);
                 }
 
 

@@ -9,6 +9,7 @@ TagManager:
   - BulletContainer
   - Bullet
   - MagicZone
+  - wintext
   layers:
   - Default
   - TransparentFX
