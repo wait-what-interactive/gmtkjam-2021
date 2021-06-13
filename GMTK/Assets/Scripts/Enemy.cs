@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -61,7 +62,8 @@ public class Enemy : MonoBehaviour
                 //next level
                 if(LevelManager.enemyCount==0)
                 {
-                    GameObject.FindGameObjectWithTag("wintext").SetActive(true);
+                    //GameObject.FindGameObjectWithTag("wintext").SetActive(true);
+                    SceneManager.LoadScene("Menu");
                 }
 
 
