@@ -20,11 +20,14 @@ public class Enemy : MonoBehaviour
 
     private bool onEnd = false;
 
+    private ParticleSystem hurt;
+
     void Start()
     {
         _maxHP = _hp;
-        int childCount = transform.GetChild(0).childCount;
+        //int childCount = transform.GetChild(0).childCount;
         //color = transform.GetChild(0).GetChild(childCount - 1).GetComponent<SpriteRenderer>().color;
+        hurt = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -45,6 +48,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            hurt.Play();
             HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
             //print(collision.gameObject.GetComponent<Bullet>().getDamage());
             //collision.gameObject.GetComponent<Bullet>().setTurget(null);

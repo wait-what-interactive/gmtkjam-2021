@@ -5,6 +5,11 @@ using UnityEngine;
 public class Exit : MonoBehaviour
 {
     public PlayerStats _playerStats;
+    private ParticleSystem ps;
+
+    private void Start() {
+        ps = GetComponentInChildren<ParticleSystem>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +19,7 @@ public class Exit : MonoBehaviour
             _playerStats.TakeDamage(enemy.GetDamage());
             Destroy(other.gameObject);
             LevelManager.enemyCount -= 1;
+            ps.Play();
         }
     }
 }
