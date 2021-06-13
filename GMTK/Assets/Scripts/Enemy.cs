@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private float _maxHP;
     private int _damage = 1;
 
-    public Color color;
+    public string color;
 
     private bool onEnd = false;
 
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     {
         _maxHP = _hp;
         int childCount = transform.GetChild(0).childCount;
-        color = transform.GetChild(0).GetChild(childCount - 1).GetComponent<SpriteRenderer>().color;
+        //color = transform.GetChild(0).GetChild(childCount - 1).GetComponent<SpriteRenderer>().color;
     }
 
     void Update()
@@ -46,11 +46,20 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
-            collision.gameObject.GetComponent<Bullet>().setTurget(null);
+            //collision.gameObject.GetComponent<Bullet>().setTurget(null);
             collision.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
                 Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            collision.gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
         }
     }
 
@@ -75,6 +84,11 @@ public class Enemy : MonoBehaviour
     public int GetDamage()
     {
         return _damage;
+    }
+
+    public string getColor()
+    {
+        return color;
     }
 
     public void SetStats(int damage, float speed, float hp)
