@@ -9,6 +9,18 @@ public class Tower : MonoBehaviour
 
     public float cooldown = 1;
 
+    public float koefInZone = 2;
+    public float koefColorToSameColor = 1;
+    public float koefBlackToColor = 0.5f;
+    public float koefColorToOtherColor = 0f;
+
+    public float damage = 25;
+
+    public string curColor;
+
+    public bool isInZone = false;
+    public ParticleSystem psDestroy;
+
     void Start()
     {
         enemies = new List<GameObject>();
@@ -58,20 +70,44 @@ public class Tower : MonoBehaviour
         Vector2 minDistancePosition = Vector2.zero;
         Transform target = null;
 
+        for (int i = enemies.Count - 1; i >= 0; --i)
+            if (enemies[i] == null)
+                enemies.RemoveAt(i);
+
         foreach (var enemy in enemies)
-            if (minDistance > Vector3.Distance(enemy.transform.position, transform.position))
+            if (enemy!=null && minDistance > Vector3.Distance(enemy.transform.position, transform.position))
             {
                 minDistance = Vector3.Distance(enemy.transform.position, transform.position);
                 minDistancePosition = enemy.transform.position;
                 target = enemy.transform;
             }
 
-        minDistancePosition = (minDistancePosition - (Vector2)transform.position).normalized;
+        if(minDistancePosition != Vector2.zero)
+        {
+            minDistancePosition = (minDistancePosition - (Vector2)transform.position).normalized;
 
-        GameObject bulletGO = GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().getBullet();
-        bulletGO.transform.position = transform.position;
-        bulletGO.GetComponent<Bullet>().setTurget(target);
-        bulletGO.SetActive(true);
+            GameObject bulletGO = GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().getBullet();
+            bulletGO.transform.position = transform.position;
+
+            Bullet bul = bulletGO.GetComponent<Bullet>();
+
+            if (curColor == "white")
+                bul.setDamage(damage * koefBlackToColor);
+            else
+            {
+                if (curColor == target.GetComponent<Enemy>().getColor())
+                    bul.setDamage(damage * koefColorToSameColor);
+                else
+                    bul.setDamage(damage * koefColorToOtherColor);
+            }
+
+            if(isInZone)
+                bul.setDamage(bul.getDamage() * koefInZone);
+
+            bul.setTarget(target);
+            bulletGO.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+            bulletGO.SetActive(true);
+        }
     }
 
     private void OnMouseOver()
@@ -79,9 +115,11 @@ public class Tower : MonoBehaviour
         //  deleting tower
         if (Input.GetMouseButtonDown(1))
         {
+            psDestroy.Play();
             TowersController.instance.DecreaseTowersCount();
             transform.parent.GetChild(0).gameObject.SetActive(true);
             gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("MagicZone").GetComponent<MagicZonesController>().CheckZones();
         }
     }
 }

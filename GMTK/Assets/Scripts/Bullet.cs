@@ -7,16 +7,16 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     float damage;
     float speed = 5;
-    Transform turget;
+    Transform target;
 
     private Vector2 dir;
 
     void Update()
     {
-        if(turget != null)
+        if(target != null)
         {
-            dir = ((Vector2)turget.position - (Vector2)transform.position).normalized;
-            transform.Translate(dir * Time.deltaTime * speed);
+            dir = ((Vector2)target.position - (Vector2)transform.position).normalized;
+            transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
         }
         else
         {
@@ -30,8 +30,13 @@ public class Bullet : MonoBehaviour
         return damage;
     }
 
-    public void setTurget(Transform turg)
+    public void setDamage(float value)
     {
-        turget = turg;
+        damage = value;
+    }
+
+    public void setTarget(Transform targ)
+    {
+        target = targ;
     }
 }

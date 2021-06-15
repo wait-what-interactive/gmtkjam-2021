@@ -13,6 +13,7 @@ public class EnemyClass
     public int damage = 1;
 
     public float delayBetweenSpawn = 0.2f;
+    public float delayToNextEnemyGroup = 1f;
 }
 
 [System.Serializable]
@@ -28,10 +29,25 @@ public class LevelManager : MonoBehaviour
     private float _timer;
     public Transform startPoint;
     public List<Transform> levelPath;
+
+    int waveCount;
+
+    public static int enemyCount = 0;
+    private ParticleSystem portalParticles;
+
     void Start()
     {
+        portalParticles = startPoint.GetComponentInChildren<ParticleSystem>();
         _timer = waves[currentWave]?.timeToNext ?? 60f;
+        waveCount = waves.Count;
+        for(int i=0; i < waves.Count;++i)
+        {
+            for (int j = 0; j < waves[i].enemies.Count; ++j)
+                enemyCount += waves[i].enemies[j].count;
+        }
+
         StartCoroutine(MakeWave());
+
     }
 
     void Update()
@@ -58,6 +74,8 @@ public class LevelManager : MonoBehaviour
 
         foreach (var enemy in enemies)
         {
+            portalParticles.Play();
+            yield return new WaitForSeconds(0.3f);
             for (int i = 0; i < enemy.count; i++)
             {
                 Enemy spawned = Instantiate(enemy.prefab, startPoint.position, Quaternion.identity).GetComponent<Enemy>();
@@ -65,8 +83,14 @@ public class LevelManager : MonoBehaviour
                 spawned.SetStats(enemy.damage, enemy.enemySpeed, enemy.enemyHP);
                 yield return new WaitForSeconds(enemy.delayBetweenSpawn);
             }
+            portalParticles.Stop();
+            yield return new WaitForSeconds(enemy.delayToNextEnemyGroup);
         }
         currentWave++;
     }
 
+    public int GetWavesNumber()
+    {
+        return waves.Count;
+    }
 }

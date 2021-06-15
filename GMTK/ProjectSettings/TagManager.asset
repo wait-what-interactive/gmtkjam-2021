@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - BulletContainer
   - Bullet
+  - MagicZone
+  - wintext
   layers:
   - Default
   - TransparentFX
