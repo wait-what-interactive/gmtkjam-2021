@@ -104,7 +104,7 @@ public class Tower : MonoBehaviour
             if(isInZone)
                 bul.setDamage(bul.getDamage() * koefInZone);
 
-            bul.setTurget(target);
+            bul.setTarget(target);
             bulletGO.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
             bulletGO.SetActive(true);
         }
