@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour
     public string curColor;
 
     public bool isInZone = false;
+    public ParticleSystem psDestroy;
 
     void Start()
     {
@@ -103,7 +104,7 @@ public class Tower : MonoBehaviour
             if(isInZone)
                 bul.setDamage(bul.getDamage() * koefInZone);
 
-            bul.setTurget(target);
+            bul.setTarget(target);
             bulletGO.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
             bulletGO.SetActive(true);
         }
@@ -114,6 +115,7 @@ public class Tower : MonoBehaviour
         //  deleting tower
         if (Input.GetMouseButtonDown(1))
         {
+            psDestroy.Play();
             TowersController.instance.DecreaseTowersCount();
             transform.parent.GetChild(0).gameObject.SetActive(true);
             gameObject.SetActive(false);

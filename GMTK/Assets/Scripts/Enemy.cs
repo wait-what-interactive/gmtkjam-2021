@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,11 +21,14 @@ public class Enemy : MonoBehaviour
 
     private bool onEnd = false;
 
+    private ParticleSystem hurt;
+
     void Start()
     {
         _maxHP = _hp;
-        int childCount = transform.GetChild(0).childCount;
+        //int childCount = transform.GetChild(0).childCount;
         //color = transform.GetChild(0).GetChild(childCount - 1).GetComponent<SpriteRenderer>().color;
+        hurt = GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -45,13 +49,26 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            hurt.Play();
             HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
             //print(collision.gameObject.GetComponent<Bullet>().getDamage());
             //collision.gameObject.GetComponent<Bullet>().setTurget(null);
             collision.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
+            {
+                LevelManager.enemyCount -= 1;
+
+                //next level
+                if(LevelManager.enemyCount==0)
+                {
+                    //GameObject.FindGameObjectWithTag("wintext").SetActive(true);
+                    SceneManager.LoadScene("Menu");
+                }
+
+
                 Destroy(gameObject);
+            }        
         }
     }
 
