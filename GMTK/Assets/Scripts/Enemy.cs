@@ -23,8 +23,12 @@ public class Enemy : MonoBehaviour
 
     private ParticleSystem hurt;
 
+    private GameObject _winText;
+
     void Start()
     {
+        _winText = GameObject.FindGameObjectWithTag("wintext");
+
         _maxHP = _hp;
         //int childCount = transform.GetChild(0).childCount;
         //color = transform.GetChild(0).GetChild(childCount - 1).GetComponent<SpriteRenderer>().color;
@@ -60,12 +64,10 @@ public class Enemy : MonoBehaviour
                 LevelManager.enemyCount -= 1;
 
                 //next level
-                if(LevelManager.enemyCount==0)
+                if (LevelManager.enemyCount == 0)
                 {
-                    //GameObject.FindGameObjectWithTag("wintext").SetActive(true);
-                    SceneManager.LoadScene("Menu");
+                    _winText.SetActive(true);
                 }
-
 
                 Destroy(gameObject);
             }        
