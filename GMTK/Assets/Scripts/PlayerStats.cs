@@ -33,6 +33,11 @@ public class PlayerStats : MonoBehaviour
         healthBar.fillAmount = (float)_hp / _maxHP;
     }
 
+    public float GetHP()
+    {
+        return _hp;
+    }
+
     public bool IsDead()
     {
         return isDead;

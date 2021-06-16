@@ -44,7 +44,6 @@ public class MainMenuManager : MonoBehaviour
 
         Time.timeScale = .0001f;
         isPaused = true;
-
     }
 
     public void Menu()

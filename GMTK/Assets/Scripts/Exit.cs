@@ -7,11 +7,12 @@ public class Exit : MonoBehaviour
     public PlayerStats _playerStats;
     private ParticleSystem ps;
 
-    private void Start() {
+    private void Start() 
+    {
         ps = GetComponentInChildren<ParticleSystem>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
@@ -20,6 +21,11 @@ public class Exit : MonoBehaviour
             Destroy(other.gameObject);
             LevelManager.enemyCount -= 1;
             ps.Play();
+
+            if (_playerStats.GetHP() > 0 && LevelManager.enemyCount==0)
+            {
+                print("you win");
+            }
         }
     }
 }
