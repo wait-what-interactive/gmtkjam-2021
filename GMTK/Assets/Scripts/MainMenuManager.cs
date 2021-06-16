@@ -6,9 +6,23 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     bool isPaused = false;
-    public GameObject loseText;
-    public LevelManager levelManager;
+    public GameObject looseText;
+    public PlayerStats playerStats;
 
+    private void Start()
+    {
+        StartCoroutine(LooseChecker());
+    }
+
+    private IEnumerator LooseChecker()
+    {
+        while (true)
+        {
+            if (Loose())
+                break;
+            yield return .3f;
+        }
+    }
     public void Play()
     {
         SceneManager.LoadScene("Game");
@@ -30,7 +44,6 @@ public class MainMenuManager : MonoBehaviour
 
         Time.timeScale = .0001f;
         isPaused = true;
-
     }
 
     public void Menu()
@@ -38,15 +51,24 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Lose()
+    public bool Loose()
     {
-        Pause();
-        loseText.SetActive(true);
+        if (playerStats.IsDead())
+        {
+            Pause();
+            looseText.SetActive(true);
+            return true;
+        }
+        return false;
     }
 
 }
