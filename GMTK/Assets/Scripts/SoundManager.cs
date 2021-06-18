@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource towerDestroy;
     public AudioSource shoot;
     public AudioSource hoverButton;
+    public AudioSource baseHurt;
 
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class SoundManager : MonoBehaviour
     {
         gameMusic.Stop();
     }
-    
+
     public void MenuMusicPlay()
     {
         menuMusic.Play();
@@ -89,5 +90,9 @@ public class SoundManager : MonoBehaviour
     public void HoverButtonStop()
     {
         hoverButton.Stop();
+    }
+    public void BaseHurtPlay()
+    {
+        baseHurt.Play();
     }
 }
