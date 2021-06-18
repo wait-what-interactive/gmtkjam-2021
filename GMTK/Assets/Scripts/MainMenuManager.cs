@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
 {
     bool isPaused = false;
     public GameObject loseText;
-    public LevelManager levelManager;
+    public GameObject winText;
 
     public void Play(string sceneName)
     {
@@ -52,4 +52,9 @@ public class MainMenuManager : MonoBehaviour
         loseText.SetActive(true);
     }
 
+    public void Win()
+    {
+        Pause();
+        winText.SetActive(true);
+    }
 }

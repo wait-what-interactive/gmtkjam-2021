@@ -10,6 +10,10 @@ TagManager:
   - Bullet
   - MagicZone
   - wintext
+  - exit
+  - buttons_manager
+  - hp
+  - towers_counter
   layers:
   - Default
   - TransparentFX

@@ -8,11 +8,14 @@ public class PlayerStats : MonoBehaviour
     private int _hp = 10;
     private int _maxHP;
 
-    public MainMenuManager mainMenuManager;
-    public Image healthBar;
+    private MainMenuManager mainMenuManager;
+    private Image healthBar;
 
     private void Start()
     {
+        mainMenuManager = GameObject.FindGameObjectWithTag("buttons_manager").GetComponent<MainMenuManager>();
+        healthBar = GameObject.FindGameObjectWithTag("hp").GetComponent<Image>();
+
         _maxHP = _hp;
         healthBar.fillAmount = _maxHP / _hp;
     }
