@@ -17,6 +17,7 @@ public class SpawnTower : MonoBehaviour
             TowersController.instance.IncreaseTowersCount();
             transform.parent.GetChild(1).gameObject.SetActive(true);
             gameObject.SetActive(false);
+            SoundManager.instance?.TowerBuildPlay();
             //Destroy(gameObject);
             GameObject.FindGameObjectWithTag("MagicZone").GetComponent<MagicZonesController>().CheckZones();
         }

@@ -108,6 +108,7 @@ public class AtackZone : MonoBehaviour
             bul.setTarget(target);
             bulletGO.GetComponent<SpriteRenderer>().color = transform.parent.GetComponent<SpriteRenderer>().color;
             bulletGO.SetActive(true);
+            SoundManager.instance?.ShootPlay();
         }
     }
 }

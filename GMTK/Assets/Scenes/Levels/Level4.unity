@@ -4494,6 +4494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23cb164a70ba3ce43a61a3a1a84ad336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loseText: {fileID: 0}
+  levelManager: {fileID: 6952930987242362119}
 --- !u!4 &1780230275
 Transform:
   m_ObjectHideFlags: 0
@@ -8149,11 +8151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6189995899586513687, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: m_ChunkCullingBounds.x
-      value: 0
+      value: 0.13999999
       objectReference: {fileID: 0}
     - target: {fileID: 6189995899586513687, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: m_ChunkCullingBounds.y
-      value: 0
+      value: 0.13999999
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987498576740, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: m_Size.x
@@ -8227,6 +8229,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1167064613}
+    - target: {fileID: 6952930987734051202, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+      propertyPath: mainMenuManager
+      value: 
+      objectReference: {fileID: 1780230274}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: levelPath.Array.size
       value: 19
@@ -8429,3 +8435,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+--- !u!114 &6952930987242362119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+  m_PrefabInstance: {fileID: 6952930987242362118}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4a4d39c36300a4581ea41de01a9890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

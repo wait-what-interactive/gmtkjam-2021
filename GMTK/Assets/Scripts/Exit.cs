@@ -22,7 +22,7 @@ public class Exit : MonoBehaviour
             LevelManager.enemyCount -= 1;
             ps.Play();
 
-            if (_playerStats.GetHP() > 0 && LevelManager.enemyCount==0)
+            if (_playerStats.GetHP() > 0 && LevelManager.enemyCount == 0)
             {
                 print("you win");
             }

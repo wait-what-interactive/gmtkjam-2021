@@ -50,14 +50,4 @@ public class TowersController : MonoBehaviour
     {
         return countOfTowers < maxCountOfTowers;
     }
-
-    public int GetCountOfTowers()
-    {
-        return this.countOfTowers;
-    }
-
-    public int GetMaxCountOfTowers()
-    {
-        return this.maxCountOfTowers;
-    }
 }

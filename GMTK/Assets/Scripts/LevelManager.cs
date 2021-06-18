@@ -37,6 +37,9 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        if(!SoundManager.instance.GameMusicPlaying())
+            SoundManager.instance.GameMusicPlay();
+            
         portalParticles = startPoint.GetComponentInChildren<ParticleSystem>();
         _timer = waves[currentWave]?.timeToNext ?? 60f;
         waveCount = waves.Count;
@@ -78,6 +81,7 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
             for (int i = 0; i < enemy.count; i++)
             {
+                SoundManager.instance?.EnemySpawnPlay();
                 Enemy spawned = Instantiate(enemy.prefab, startPoint.position, Quaternion.identity).GetComponent<Enemy>();
                 spawned.SetLevelPath(levelPath);
                 spawned.SetStats(enemy.damage, enemy.enemySpeed, enemy.enemyHP);

@@ -11,6 +11,7 @@ public class Tower : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(1))
         {
+            SoundManager.instance?.TowerDestroyPlay();
             psDestroy.Play();
             TowersController.instance.DecreaseTowersCount();
             transform.parent.GetChild(0).gameObject.SetActive(true);

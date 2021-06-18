@@ -9,9 +9,10 @@ public class MainMenuManager : MonoBehaviour
     public GameObject loseText;
     public LevelManager levelManager;
 
-    public void Play()
+    public void Play(string sceneName)
     {
-        SceneManager.LoadScene("Game");
+        SoundManager.instance.MenuMusicStop();
+        SceneManager.LoadScene(sceneName);
     }
 
     public void Exit()
@@ -35,6 +36,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void Menu()
     {
+        SoundManager.instance.GameMusicStop();
+        SoundManager.instance.MenuMusicPlay();
         SceneManager.LoadScene("Menu");
     }
 
