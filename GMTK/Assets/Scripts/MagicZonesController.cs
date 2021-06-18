@@ -39,7 +39,7 @@ public class MagicZonesController : MonoBehaviour
                 //print("is combination");
                 for (int j = 0; j < magicZones[i].towers.Count; ++j)
                 {
-                    magicZones[i].towers[j].transform.GetChild(1).GetComponent<Tower>().isInZone = true;
+                    magicZones[i].towers[j].transform.GetChild(1).GetChild(1).GetComponent<AtackZone>().isInZone = true;
                     magicZones[i].towers[j].transform.GetChild(1).GetComponent<SpriteRenderer>().color =
                         magicZones[i].towers[j].transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().color;
                 }        
@@ -52,7 +52,7 @@ public class MagicZonesController : MonoBehaviour
                     //print("combination died");
                     for (int j = 0; j < magicZones[i].towers.Count; ++j)
                     {
-                        magicZones[i].towers[j].transform.GetChild(1).GetComponent<Tower>().isInZone = false;
+                        magicZones[i].towers[j].transform.GetChild(1).GetChild(1).GetComponent<AtackZone>().isInZone = false;
                         magicZones[i].towers[j].transform.GetChild(1).GetComponent<SpriteRenderer>().color = Color.white;
                     }    
                 }
