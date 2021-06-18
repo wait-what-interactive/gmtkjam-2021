@@ -22,13 +22,14 @@ public class Exit : MonoBehaviour
             _playerStats.TakeDamage(enemy.GetDamage());
             Destroy(other.gameObject);
             LevelManager.enemyCount -= 1;
+            Win();
             ps.Play();
         }
     }
 
     public void Win()
     {
-        if (_playerStats.GetHP() >= 0 && LevelManager.enemyCount == 0)
+        if (_playerStats.GetHP() > 0 && LevelManager.enemyCount == 0)
         {
             mainMenuManager.Win();
             print("you win");
