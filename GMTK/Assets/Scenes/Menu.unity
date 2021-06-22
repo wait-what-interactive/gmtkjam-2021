@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 227.544, y: -91.09375}
-  m_SizeDelta: {x: 455.088, y: 42.187496}
+  m_AnchoredPosition: {x: 227.544, y: -91}
+  m_SizeDelta: {x: 455.088, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &59494305
 MonoBehaviour:
@@ -1342,8 +1342,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 227.544, y: -184.21875}
-  m_SizeDelta: {x: 455.088, y: 44.062496}
+  m_AnchoredPosition: {x: 227.544, y: -184}
+  m_SizeDelta: {x: 455.088, y: 44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854974652
 MonoBehaviour:
@@ -1440,7 +1440,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: level1
+          m_StringArgument: level2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &858025537
@@ -1522,7 +1522,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -72.61571}
-  m_SizeDelta: {x: 0, y: 579.6875}
+  m_SizeDelta: {x: 0, y: 577.3334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887976235
 MonoBehaviour:
@@ -2437,8 +2437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 227.544, y: -558.125}
-  m_SizeDelta: {x: 455.088, y: 43.124996}
+  m_AnchoredPosition: {x: 227.544, y: -556}
+  m_SizeDelta: {x: 455.088, y: 42.666668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1310521254
 MonoBehaviour:
@@ -2535,7 +2535,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: level1
+          m_StringArgument: level6
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1369306204
@@ -2718,8 +2718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 227.544, y: -277.8125}
-  m_SizeDelta: {x: 455.088, y: 43.124996}
+  m_AnchoredPosition: {x: 227.544, y: -277.33334}
+  m_SizeDelta: {x: 455.088, y: 42.666668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1490535936
 MonoBehaviour:
@@ -2816,7 +2816,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: level1
+          m_StringArgument: level3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1511727865
@@ -2854,8 +2854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 227.544, y: -371.40625}
-  m_SizeDelta: {x: 455.088, y: 44.062496}
+  m_AnchoredPosition: {x: 227.544, y: -370.3333}
+  m_SizeDelta: {x: 455.088, y: 43.333332}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511727867
 MonoBehaviour:
@@ -2952,7 +2952,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: level1
+          m_StringArgument: level4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1530466400
@@ -3428,8 +3428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 227.544, y: -465}
-  m_SizeDelta: {x: 455.088, y: 43.124996}
+  m_AnchoredPosition: {x: 227.544, y: -463.33334}
+  m_SizeDelta: {x: 455.088, y: 42.666668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1783996522
 MonoBehaviour:
@@ -3526,7 +3526,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: level1
+          m_StringArgument: level5
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1850173197
