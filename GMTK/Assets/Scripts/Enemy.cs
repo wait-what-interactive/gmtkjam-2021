@@ -23,12 +23,13 @@ public class Enemy : MonoBehaviour
 
     private ParticleSystem hurt;
     private Exit exit;
+    public GameObject deathParticles;
+
+    private GameObject _winText;
 
     void Start()
     {
         _maxHP = _hp;
-        //int childCount = transform.GetChild(0).childCount;
-        //color = transform.GetChild(0).GetChild(childCount - 1).GetComponent<SpriteRenderer>().color;
         hurt = GetComponentInChildren<ParticleSystem>();
 
         exit = GameObject.FindGameObjectWithTag("exit").GetComponent<Exit>();
@@ -44,7 +45,7 @@ public class Enemy : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) < 0.3f)
             ChangeTarget();
 
-        if(!onEnd)
+        if (!onEnd)
             transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
     }
 
@@ -60,12 +61,15 @@ public class Enemy : MonoBehaviour
             GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
             {
+                GameObject deathPart = Instantiate(deathParticles, hurt.gameObject.transform.position, Quaternion.identity);
+                Destroy(deathPart, 0.7f);
+
                 LevelManager.enemyCount -= 1;
                 if (LevelManager.enemyCount >= 0)
                     exit.Win();
 
                 Destroy(gameObject);
-            }        
+            }
         }
     }
 

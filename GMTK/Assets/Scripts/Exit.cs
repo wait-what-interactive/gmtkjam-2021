@@ -18,6 +18,7 @@ public class Exit : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            SoundManager.instance?.BaseHurtPlay();
             Enemy enemy = other.GetComponent<Enemy>();
             _playerStats.TakeDamage(enemy.GetDamage());
             Destroy(other.gameObject);
