@@ -52,7 +52,7 @@ public class MainMenuManager : MonoBehaviour
             return;
         }
 
-        Time.timeScale = .0001f;
+        Time.timeScale = 0f;
         isPaused = true;
 
     }

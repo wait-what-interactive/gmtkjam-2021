@@ -11,7 +11,7 @@ public class SpawnTower : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (TowersController.instance.CanSpawnTower())
+        if (TowersController.instance.CanSpawnTower() && Time.timeScale > 0f)
         {
             ps.Play();
             TowersController.instance.IncreaseTowersCount();

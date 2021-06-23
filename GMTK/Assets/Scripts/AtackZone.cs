@@ -58,8 +58,8 @@ public class AtackZone : MonoBehaviour
     {
         while (enemies.Count != 0)
         {
-            Shoot();
             yield return new WaitForSeconds(cooldown);
+            Shoot();
         }
     }
 
@@ -68,10 +68,6 @@ public class AtackZone : MonoBehaviour
         float minDistance = 100;
         Vector2 minDistancePosition = Vector2.zero;
         Transform target = null;
-
-        //for (int i = enemies.Count - 1; i >= 0; --i)
-        //    if (enemies[i] == null)
-        //        enemies.RemoveAt(i);
 
         foreach (var enemy in enemies)
             if (enemy != null && minDistance > Vector3.Distance(enemy.transform.position, transform.position))
@@ -103,12 +99,16 @@ public class AtackZone : MonoBehaviour
             if (isInZone)
                 bul.setDamage(bul.getDamage() * koefInZone);
 
-           // print(koefBlackToColor);
-
             bul.setTarget(target);
             bulletGO.GetComponent<SpriteRenderer>().color = transform.parent.GetComponent<SpriteRenderer>().color;
             bulletGO.SetActive(true);
             SoundManager.instance?.ShootPlay();
         }
+    }
+
+    public void ResetState()
+    {
+        enemies.Clear();
+        shootController = null;
     }
 }
