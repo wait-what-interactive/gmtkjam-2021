@@ -25,11 +25,12 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    private IEnumerator Delay(float delay, GameObject show)
+    private IEnumerator Delay(float delay, GameObject show, System.Action func)
     {
         yield return new WaitForSeconds(delay);
         Pause();
         show.SetActive(true);
+        func();
     }
 
     public void Play(string sceneName)
@@ -71,12 +72,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void Lose()
     {
-        StartCoroutine(Delay(1f, loseText));
+        StartCoroutine(Delay(1f, loseText, () => { SoundManager.instance?.LosePlay(); }));
     }
 
     public void Win()
     {
-        StartCoroutine(Delay(1f, winText));
+        StartCoroutine(Delay(1f, winText, () => { SoundManager.instance?.WinPlay(); }));
     }
 
     public void OnChangeSlider(Slider slider)

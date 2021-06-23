@@ -11,15 +11,20 @@ public class SpawnTower : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (TowersController.instance.CanSpawnTower() && Time.timeScale > 0f)
+        if (Time.timeScale == 0f)
+            return;
+            
+        if (TowersController.instance.CanSpawnTower())
         {
             ps.Play();
             TowersController.instance.IncreaseTowersCount();
             transform.parent.GetChild(1).gameObject.SetActive(true);
             gameObject.SetActive(false);
             SoundManager.instance?.TowerBuildPlay();
-            //Destroy(gameObject);
             GameObject.FindGameObjectWithTag("MagicZone").GetComponent<MagicZonesController>().CheckZones();
+            return;
         }
+        SoundManager.instance?.NoMoreTowersPlay();
+
     }
 }

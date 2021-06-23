@@ -17,6 +17,9 @@ public class SoundManager : MonoBehaviour
     public AudioSource shoot;
     public AudioSource hoverButton;
     public AudioSource baseHurt;
+    public AudioSource win;
+    public AudioSource lose;
+    public AudioSource noMoreTowers;
 
     private List<AudioSource> sfx = new List<AudioSource>();
 
@@ -32,7 +35,8 @@ public class SoundManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
         AudioSource[] sfxSource =
-        { baseHurt, hoverButton, shoot, towerDestroy, towerBuild, enemySpawn,
+        { baseHurt, hoverButton, shoot, towerDestroy, 
+            towerBuild, enemySpawn, lose, win, noMoreTowers,
             gameMusic, menuMusic
         };
         sfx.AddRange(sfxSource);
@@ -103,9 +107,25 @@ public class SoundManager : MonoBehaviour
         baseHurt.Play();
     }
 
+    public void WinPlay()
+    {
+        win.Play();
+    }
+
+    public void LosePlay()
+    {
+        Debug.Log("played");
+        lose.Play();
+    }
+
+    public void NoMoreTowersPlay()
+    {
+        noMoreTowers.Play();
+    }
+
     public void ChangeVolume(float value)
     {
-        foreach(var sfxElement in sfx)
+        foreach (var sfxElement in sfx)
             sfxElement.volume = 1f - value;
     }
 }
