@@ -27,12 +27,13 @@ public class Enemy : MonoBehaviour
 
     private GameObject _winText;
 
+    private LevelManager levelManager;
+
     void Start()
     {
         _maxHP = _hp;
         hurt = GetComponentInChildren<ParticleSystem>();
-
-        exit = GameObject.FindGameObjectWithTag("exit").GetComponent<Exit>();
+        levelManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>();
     }
 
     void Update()
@@ -55,19 +56,13 @@ public class Enemy : MonoBehaviour
         {
             hurt.Play();
             HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
-            //print(collision.gameObject.GetComponent<Bullet>().getDamage());
-            //collision.gameObject.GetComponent<Bullet>().setTurget(null);
             collision.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
             {
                 GameObject deathPart = Instantiate(deathParticles, hurt.gameObject.transform.position, Quaternion.identity);
                 Destroy(deathPart, 0.7f);
-
-                LevelManager.enemyCount -= 1;
-                if (LevelManager.enemyCount >= 0)
-                    exit.Win();
-
+                levelManager.DecreaseEnemies();
                 Destroy(gameObject);
             }
         }

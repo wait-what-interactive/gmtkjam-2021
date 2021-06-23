@@ -114,7 +114,6 @@ public class SoundManager : MonoBehaviour
 
     public void LosePlay()
     {
-        Debug.Log("played");
         lose.Play();
     }
 
