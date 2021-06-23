@@ -19,10 +19,17 @@ public class MainMenuManager : MonoBehaviour
     {
         if (volume)
         {
-            volume.minValue = min;
-            volume.maxValue = max;
+            volume.minValue = max;
+            volume.maxValue = min;
             volume.value = PlayerPrefs.GetFloat("volume", max);
         }
+    }
+
+    private IEnumerator Delay(float delay, GameObject show)
+    {
+        yield return new WaitForSeconds(delay);
+        Pause();
+        show.SetActive(true);
     }
 
     public void Play(string sceneName)
@@ -64,17 +71,17 @@ public class MainMenuManager : MonoBehaviour
 
     public void Lose()
     {
-        Pause();
-        loseText.SetActive(true);
+        StartCoroutine(Delay(1f, loseText));
     }
 
     public void Win()
     {
-        Pause();
-        winText.SetActive(true);
+        StartCoroutine(Delay(1f, winText));
     }
 
-    public void OnChangeSlider(Slider slider){
+    public void OnChangeSlider(Slider slider)
+    {
+        PlayerPrefs.SetFloat("volume", slider.value);
         SoundManager.instance.ChangeVolume(slider.value);
     }
 }

@@ -8,7 +8,7 @@ public class Exit : MonoBehaviour
     private MainMenuManager mainMenuManager;
     private ParticleSystem ps;
 
-    private void Start() 
+    private void Start()
     {
         ps = GetComponentInChildren<ParticleSystem>();
         mainMenuManager = GameObject.FindGameObjectWithTag("buttons_manager").GetComponent<MainMenuManager>();
