@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
@@ -8,6 +9,21 @@ public class MainMenuManager : MonoBehaviour
     bool isPaused = false;
     public GameObject loseText;
     public GameObject winText;
+
+    public Slider volume;
+
+    private float min = 1f;
+    private float max = 0f;
+
+    private void Start()
+    {
+        if (volume)
+        {
+            volume.minValue = min;
+            volume.maxValue = max;
+            volume.value = PlayerPrefs.GetFloat("volume", max);
+        }
+    }
 
     public void Play(string sceneName)
     {
@@ -56,5 +72,9 @@ public class MainMenuManager : MonoBehaviour
     {
         Pause();
         winText.SetActive(true);
+    }
+
+    public void OnChangeSlider(Slider slider){
+        SoundManager.instance.ChangeVolume(slider.value);
     }
 }

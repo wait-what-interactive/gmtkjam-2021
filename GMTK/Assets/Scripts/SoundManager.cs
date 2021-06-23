@@ -18,6 +18,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource hoverButton;
     public AudioSource baseHurt;
 
+    private List<AudioSource> sfx = new List<AudioSource>();
+
     private void Awake()
     {
         if (instance == null)
@@ -29,9 +31,14 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
+        AudioSource[] sfxSource =
+        { baseHurt, hoverButton, shoot, towerDestroy, towerBuild, enemySpawn,
+            gameMusic, menuMusic
+        };
+        sfx.AddRange(sfxSource);
     }
 
-    void Start()
+    private void Start()
     {
         //  play music 
         string currentScene = SceneManager.GetActiveScene().name;
@@ -94,5 +101,11 @@ public class SoundManager : MonoBehaviour
     public void BaseHurtPlay()
     {
         baseHurt.Play();
+    }
+
+    public void ChangeVolume(float value)
+    {
+        foreach(var sfxElement in sfx)
+            sfxElement.volume = 1f - value;
     }
 }
