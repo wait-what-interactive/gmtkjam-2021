@@ -22,16 +22,17 @@ public class Enemy : MonoBehaviour
     private bool onEnd = false;
 
     private ParticleSystem hurt;
+    private Exit exit;
     public GameObject deathParticles;
 
     private GameObject _winText;
 
     void Start()
     {
-        _winText = GameObject.FindGameObjectWithTag("wintext");
-
         _maxHP = _hp;
         hurt = GetComponentInChildren<ParticleSystem>();
+
+        exit = GameObject.FindGameObjectWithTag("exit").GetComponent<Exit>();
     }
 
     void Update()
@@ -64,12 +65,8 @@ public class Enemy : MonoBehaviour
                 Destroy(deathPart, 0.7f);
 
                 LevelManager.enemyCount -= 1;
-
-                //next level
-                if (LevelManager.enemyCount == 0)
-                {
-                    _winText.SetActive(true);
-                }
+                if (LevelManager.enemyCount >= 0)
+                    exit.Win();
 
                 Destroy(gameObject);
             }

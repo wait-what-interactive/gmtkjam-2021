@@ -5,11 +5,13 @@ using UnityEngine;
 public class Exit : MonoBehaviour
 {
     public PlayerStats _playerStats;
+    private MainMenuManager mainMenuManager;
     private ParticleSystem ps;
 
     private void Start() 
     {
         ps = GetComponentInChildren<ParticleSystem>();
+        mainMenuManager = GameObject.FindGameObjectWithTag("buttons_manager").GetComponent<MainMenuManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,12 +23,17 @@ public class Exit : MonoBehaviour
             _playerStats.TakeDamage(enemy.GetDamage());
             Destroy(other.gameObject);
             LevelManager.enemyCount -= 1;
+            Win();
             ps.Play();
+        }
+    }
 
-            if (_playerStats.GetHP() > 0 && LevelManager.enemyCount == 0)
-            {
-                print("you win");
-            }
+    public void Win()
+    {
+        if (_playerStats.GetHP() > 0 && LevelManager.enemyCount == 0)
+        {
+            mainMenuManager.Win();
+            print("you win");
         }
     }
 }
