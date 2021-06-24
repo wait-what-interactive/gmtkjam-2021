@@ -532,7 +532,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 2595660826611411574, guid: 167df1253598e5c489e7fc1a6e7191db, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 135.00002
+      value: 135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167df1253598e5c489e7fc1a6e7191db, type: 3}
@@ -7206,6 +7206,10 @@ PrefabInstance:
       propertyPath: levelPath.Array.data[23]
       value: 
       objectReference: {fileID: 784332981}
+    - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+      propertyPath: waves.Array.data[1].timeToNext
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[2].timeToNext
       value: 60

@@ -60,7 +60,7 @@ MonoBehaviour:
   towerBuild: {fileID: 8468947195064942657}
   towerDestroy: {fileID: 8468947195064942656}
   shoot: {fileID: 8468947195064942659}
-  hoverButton: {fileID: 5169677583267103777}
+  buttonsSource: {fileID: 5169677583267103777}
   baseHurt: {fileID: 8246856681864405887}
   win: {fileID: 8336891852471812384}
   lose: {fileID: 341958554903670640}

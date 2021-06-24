@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
     bool isPaused = false;
     public GameObject loseText;
     public GameObject winText;
+    public GameObject nextLevelText;
 
     public Slider volume;
 
@@ -23,6 +24,12 @@ public class MainMenuManager : MonoBehaviour
             volume.maxValue = min;
             volume.value = PlayerPrefs.GetFloat("volume", max);
         }
+
+        if (SceneManager.sceneCountInBuildSettings == SceneManager.sceneCount)
+            nextLevelText.SetActive(false);
+        else
+            nextLevelText.SetActive(true);
+
     }
 
     private IEnumerator Delay(float delay, GameObject show, System.Action func)
@@ -78,6 +85,11 @@ public class MainMenuManager : MonoBehaviour
     public void Win()
     {
         StartCoroutine(Delay(1f, winText, () => { SoundManager.instance?.WinPlay(); }));
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnChangeSlider(Slider slider)

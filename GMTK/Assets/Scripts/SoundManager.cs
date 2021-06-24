@@ -15,7 +15,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource towerBuild;
     public AudioSource towerDestroy;
     public AudioSource shoot;
-    public AudioSource hoverButton;
+    public AudioSource buttonsSource;
     public AudioSource baseHurt;
     public AudioSource win;
     public AudioSource lose;
@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
         AudioSource[] sfxSource =
-        { baseHurt, hoverButton, shoot, towerDestroy, 
+        { baseHurt, buttonsSource, shoot, towerDestroy,
             towerBuild, enemySpawn, lose, win, noMoreTowers,
             gameMusic, menuMusic
         };
@@ -94,13 +94,20 @@ public class SoundManager : MonoBehaviour
     {
         shoot.Play();
     }
-    public void HoverButtonPlay()
+    public void ButtonPlay(AudioClip clip)
     {
-        hoverButton.Play();
+        if (!clip)
+        {
+            buttonsSource.Stop();
+            return;
+        }
+
+        buttonsSource.clip = clip;
+        buttonsSource.Play();
     }
-    public void HoverButtonStop()
+    public void ButtonStop()
     {
-        hoverButton.Stop();
+        buttonsSource.Stop();
     }
     public void BaseHurtPlay()
     {
