@@ -109,11 +109,13 @@ public class SoundManager : MonoBehaviour
 
     public void WinPlay()
     {
+        Time.timeScale = 0;
         win.Play();
     }
 
     public void LosePlay()
     {
+        Time.timeScale = 0;
         lose.Play();
     }
 

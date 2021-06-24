@@ -7,7 +7,8 @@ public class Tower : MonoBehaviour
     public ParticleSystem psDestroy;
     private AtackZone atackZone;
     
-    private void Start() {
+    private void Start() 
+    {
         atackZone = GetComponentInChildren<AtackZone>();
     }
 
