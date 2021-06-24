@@ -14,6 +14,8 @@ TagManager:
   - buttons_manager
   - hp
   - towers_counter
+  - WaveContainer
+  - WaveIndicator
   layers:
   - Default
   - TransparentFX

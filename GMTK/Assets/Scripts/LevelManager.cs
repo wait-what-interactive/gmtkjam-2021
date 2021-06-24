@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class EnemyClass
@@ -30,27 +31,33 @@ public class LevelManager : MonoBehaviour
     public Transform startPoint;
     public List<Transform> levelPath;
 
-    int waveCount;
-
-    public static int enemyCount = 0;
+    private int enemyCount = 0;
     private ParticleSystem portalParticles;
+    private Image waveImage;
+    private Text waveCountText;
+    private float currentWaveTick = 0f;
+    private Exit exit;
+    private int currentEnemies = 0;
 
     void Start()
     {
-        if(!SoundManager.instance.GameMusicPlaying())
+        GameObject waveContainer = GameObject.FindGameObjectWithTag("WaveContainer");
+        waveImage = GameObject.FindGameObjectWithTag("WaveIndicator").GetComponent<Image>();
+        waveCountText = waveContainer.GetComponentInChildren<Text>();
+        exit = GameObject.FindGameObjectWithTag("exit").GetComponent<Exit>();
+
+        if (!SoundManager.instance.GameMusicPlaying())
             SoundManager.instance.GameMusicPlay();
-            
+
         portalParticles = startPoint.GetComponentInChildren<ParticleSystem>();
         _timer = waves[currentWave]?.timeToNext ?? 60f;
-        waveCount = waves.Count;
-        for(int i=0; i < waves.Count;++i)
+        for (int i = 0; i < waves.Count; ++i)
         {
             for (int j = 0; j < waves[i].enemies.Count; ++j)
                 enemyCount += waves[i].enemies[j].count;
         }
 
         StartCoroutine(MakeWave());
-
     }
 
     void Update()
@@ -71,14 +78,18 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator MakeWave()
     {
-        Wave wave = waves[currentWave];
+        waveCountText.text = $"{currentWave + 1} / {waves.Count}";
 
+        Wave wave = waves[currentWave];
         List<EnemyClass> enemies = waves[currentWave].enemies;
 
         foreach (var enemy in enemies)
         {
             portalParticles.Play();
             yield return new WaitForSeconds(0.3f);
+            waveImage.fillAmount = 1f;
+            currentEnemies += enemy.count;
+            currentWaveTick = 1f / currentEnemies;
             for (int i = 0; i < enemy.count; i++)
             {
                 SoundManager.instance?.EnemySpawnPlay();
@@ -87,14 +98,30 @@ public class LevelManager : MonoBehaviour
                 spawned.SetStats(enemy.damage, enemy.enemySpeed, enemy.enemyHP);
                 yield return new WaitForSeconds(enemy.delayBetweenSpawn);
             }
+
             portalParticles.Stop();
             yield return new WaitForSeconds(enemy.delayToNextEnemyGroup);
         }
         currentWave++;
     }
 
-    public int GetWavesNumber()
+    public void DecreaseEnemies()
     {
-        return waves.Count;
+        if (enemyCount > 0)
+        {
+            enemyCount -= 1;
+            currentEnemies -= 1;
+            waveImage.fillAmount = waveImage.fillAmount - currentWaveTick;
+            Debug.Log(currentEnemies);
+            Debug.Log(currentWaveTick);
+        }
+
+        if (enemyCount <= 0)
+            exit.Win();
+    }
+
+    public int GetEnemyCount()
+    {
+        return enemyCount;
     }
 }
