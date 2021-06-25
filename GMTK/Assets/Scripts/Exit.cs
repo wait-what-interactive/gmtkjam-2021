@@ -33,9 +33,6 @@ public class Exit : MonoBehaviour
     public void Win()
     {
         if (_playerStats.GetHP() > 0 && levelManager.GetEnemyCount() == 0)
-        {
             mainMenuManager.Win();
-            print("you win");
-        }
     }
 }

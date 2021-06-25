@@ -228,6 +228,7 @@ Transform:
   - {fileID: 1244927698}
   - {fileID: 165738191}
   - {fileID: 689599372}
+  - {fileID: 2102879650}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2875,6 +2876,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167df1253598e5c489e7fc1a6e7191db, type: 3}
+--- !u!1001 &2102879649
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 78804288}
+    m_Modifications:
+    - target: {fileID: 8357454077386504481, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_Name
+      value: Tower (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+--- !u!4 &2102879650 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8357454077386504670, guid: e778da04226e2bc448232fa13c42e85d, type: 3}
+  m_PrefabInstance: {fileID: 2102879649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2119770314
 GameObject:
   m_ObjectHideFlags: 0
@@ -6263,7 +6326,7 @@ PrefabInstance:
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 531246890909195931, guid: efb55d7d0b247cd4984fcbabb4f88283, type: 3}
+      objectReference: {fileID: 531246890909195931, guid: 9ba4760591d7e784c91f7c7e08f2bef1, type: 3}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[1].prefab
       value: 
@@ -6298,15 +6361,15 @@ PrefabInstance:
       objectReference: {fileID: 531246890909195931, guid: ceb8f36f58296e3448b2cf7323da72ab, type: 3}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].color.b
-      value: 0.78823537
+      value: 0.4156863
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].color.g
-      value: 0.654902
+      value: 0.43921572
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].color.r
-      value: 0.5372549
+      value: 0.8941177
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[1].color.b

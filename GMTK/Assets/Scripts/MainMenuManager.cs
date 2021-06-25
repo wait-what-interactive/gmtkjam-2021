@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         if (volume)
         {
             volume.minValue = max;

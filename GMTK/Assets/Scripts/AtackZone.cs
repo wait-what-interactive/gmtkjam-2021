@@ -11,10 +11,10 @@ public class AtackZone : MonoBehaviour
 
     public float koefInZone = 2;
     public float koefColorToSameColor = 1;
-    public float koefBlackToColor = 0.5f;
+    public float koefBlackToColor = 0.8f;
     public float koefColorToOtherColor = 0f;
 
-    public float damage = 25;
+    public float damage = 35;
 
     public bool isInZone = false;
 
