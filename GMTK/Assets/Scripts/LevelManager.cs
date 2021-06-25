@@ -81,6 +81,8 @@ public class LevelManager : MonoBehaviour
         List<EnemyClass> enemies = waves[currentWave].enemies;
         waveCountText.text = $"{currentWave + 1} / {waves.Count}";
         waveImage.fillAmount = 1f;
+        waveImage.color = enemies[0].color;
+
         int currentEnemies = 0;
         for (int j = 0; j < enemies.Count; ++j)
             currentEnemies += enemies[j].count;
@@ -89,6 +91,7 @@ public class LevelManager : MonoBehaviour
         foreach (var enemy in enemies)
         {
             portalParticles.Play();
+            waveImage.color = enemy.color;
             yield return new WaitForSeconds(0.3f);
             for (int i = 0; i < enemy.count; i++)
             {

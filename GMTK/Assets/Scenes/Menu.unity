@@ -284,6 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 70107124}
   - component: {fileID: 70107125}
+  - component: {fileID: 70107126}
   m_Layer: 0
   m_Name: VolumeContainer
   m_TagString: Untagged
@@ -338,6 +339,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &70107126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70107123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785f19bca008e5a4f90724a5b90a2b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover: {fileID: 8300000, guid: 7a86485acaae981459561991e5e4deed, type: 3}
+  click: {fileID: 8300000, guid: d1949a99db54acf489de2dc19676560a, type: 3}
 --- !u!1 &196486493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,7 +1029,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.053000003}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 500, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &588591464
@@ -1084,6 +1099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loseText: {fileID: 0}
   winText: {fileID: 0}
+  nextLevelText: {fileID: 0}
   volume: {fileID: 1927285889}
 --- !u!4 &661926254
 Transform:
@@ -1851,6 +1867,7 @@ GameObject:
   - component: {fileID: 1110750845}
   - component: {fileID: 1110750847}
   - component: {fileID: 1110750848}
+  - component: {fileID: 1110750849}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -2006,6 +2023,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1110750849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110750843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785f19bca008e5a4f90724a5b90a2b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover: {fileID: 8300000, guid: 7a86485acaae981459561991e5e4deed, type: 3}
+  click: {fileID: 8300000, guid: d1949a99db54acf489de2dc19676560a, type: 3}
 --- !u!1 &1117781825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2200,7 @@ GameObject:
   - component: {fileID: 1183046611}
   - component: {fileID: 1183046610}
   - component: {fileID: 1183046613}
+  - component: {fileID: 1183046614}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -2324,6 +2356,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1183046614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183046608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 785f19bca008e5a4f90724a5b90a2b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hover: {fileID: 8300000, guid: 7a86485acaae981459561991e5e4deed, type: 3}
+  click: {fileID: 8300000, guid: d1949a99db54acf489de2dc19676560a, type: 3}
 --- !u!1 &1190415850
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,7 +4126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.15300001}
   m_AnchorMax: {x: 1, y: 0.8485721}
-  m_AnchoredPosition: {x: -0.5, y: -1.9169617}
+  m_AnchoredPosition: {x: -0.5, y: -1.9169922}
   m_SizeDelta: {x: -1, y: 2.6709595}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988164445
