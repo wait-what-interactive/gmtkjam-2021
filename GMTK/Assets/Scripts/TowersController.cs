@@ -25,7 +25,7 @@ public class TowersController : MonoBehaviour
 
     public void OnTowersCountChange()
     {
-        towersCount.text = $"{countOfTowers} / {maxCountOfTowers}";
+        GameObject.FindGameObjectWithTag("towers_counter").GetComponent<Text>().text = $"{countOfTowers} / {maxCountOfTowers}";
     }
 
     public void IncreaseTowersCount()
@@ -49,15 +49,5 @@ public class TowersController : MonoBehaviour
     public bool CanSpawnTower()
     {
         return countOfTowers < maxCountOfTowers;
-    }
-
-    public int GetCountOfTowers()
-    {
-        return this.countOfTowers;
-    }
-
-    public int GetMaxCountOfTowers()
-    {
-        return this.maxCountOfTowers;
     }
 }

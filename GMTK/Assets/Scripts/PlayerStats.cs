@@ -7,25 +7,26 @@ public class PlayerStats : MonoBehaviour
 {
     private int _hp = 10;
     private int _maxHP;
-    private bool isDead = false;
 
-    public Image healthBar;
+    private MainMenuManager mainMenuManager;
+    private Image healthBar;
 
     private void Start()
     {
-        isDead = false;
+        mainMenuManager = GameObject.FindGameObjectWithTag("buttons_manager").GetComponent<MainMenuManager>();
+        healthBar = GameObject.FindGameObjectWithTag("hp").GetComponent<Image>();
+
         _maxHP = _hp;
         healthBar.fillAmount = _maxHP / _hp;
     }
 
     public void TakeDamage(int damage)
     {
-        if (_hp - damage < 0)
+        if (_hp - damage <= 0)
         {
             _hp = 0;
-            Debug.Log("Game over handler here!");
             healthBar.fillAmount = 0;
-            isDead = true;
+            mainMenuManager.Lose();
             return;
         }
 
@@ -33,8 +34,9 @@ public class PlayerStats : MonoBehaviour
         healthBar.fillAmount = (float)_hp / _maxHP;
     }
 
-    public bool IsDead()
+    public float GetHP()
     {
-        return isDead;
-    }    
+        return _hp;
+    }
+
 }
