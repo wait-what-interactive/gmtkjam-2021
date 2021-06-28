@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bullet_container
+  - Enemy
+  - BulletContainer
+  - Bullet
+  - MagicZone
+  - wintext
+  - exit
+  - buttons_manager
+  - hp
+  - towers_counter
+  - WaveContainer
+  - WaveIndicator
   layers:
   - Default
   - TransparentFX
@@ -11,8 +23,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - tower
+  - atackZone
   - 
   - 
   - 
