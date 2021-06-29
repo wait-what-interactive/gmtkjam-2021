@@ -37,7 +37,6 @@ public class LevelManager : MonoBehaviour
     private Text waveCountText;
     private float currentWaveTick = 0f;
     private Exit exit;
-    private int currentEnemies = 0;
 
     void Start()
     {
@@ -78,24 +77,31 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator MakeWave()
     {
-        waveCountText.text = $"{currentWave + 1} / {waves.Count}";
-
         Wave wave = waves[currentWave];
         List<EnemyClass> enemies = waves[currentWave].enemies;
+        waveCountText.text = $"{currentWave + 1} / {waves.Count}";
+        waveImage.fillAmount = 1f;
+        waveImage.color = enemies[0].color;
+
+        int currentEnemies = 0;
+        for (int j = 0; j < enemies.Count; ++j)
+            currentEnemies += enemies[j].count;
+        currentWaveTick = 1f / currentEnemies;
 
         foreach (var enemy in enemies)
         {
             portalParticles.Play();
+            waveImage.color = enemy.color;
             yield return new WaitForSeconds(0.3f);
-            waveImage.fillAmount = 1f;
-            currentEnemies += enemy.count;
-            currentWaveTick = 1f / currentEnemies;
             for (int i = 0; i < enemy.count; i++)
             {
                 SoundManager.instance?.EnemySpawnPlay();
                 Enemy spawned = Instantiate(enemy.prefab, startPoint.position, Quaternion.identity).GetComponent<Enemy>();
                 spawned.SetLevelPath(levelPath);
                 spawned.SetStats(enemy.damage, enemy.enemySpeed, enemy.enemyHP);
+
+                waveImage.fillAmount = waveImage.fillAmount - currentWaveTick;
+
                 yield return new WaitForSeconds(enemy.delayBetweenSpawn);
             }
 
@@ -110,10 +116,6 @@ public class LevelManager : MonoBehaviour
         if (enemyCount > 0)
         {
             enemyCount -= 1;
-            currentEnemies -= 1;
-            waveImage.fillAmount = waveImage.fillAmount - currentWaveTick;
-            Debug.Log(currentEnemies);
-            Debug.Log(currentWaveTick);
         }
 
         if (enemyCount <= 0)

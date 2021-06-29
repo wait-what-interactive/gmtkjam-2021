@@ -1747,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 2595660826611411574, guid: 167df1253598e5c489e7fc1a6e7191db, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 135.00002
+      value: 135
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167df1253598e5c489e7fc1a6e7191db, type: 3}
@@ -9173,6 +9173,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 531246890909195931, guid: ceb8f36f58296e3448b2cf7323da72ab, type: 3}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+      propertyPath: waves.Array.data[0].enemies.Array.data[0].color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].color.b
       value: 0.54901963
       objectReference: {fileID: 0}
@@ -9183,6 +9187,10 @@ PrefabInstance:
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].color.r
       value: 0.9176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
+      propertyPath: waves.Array.data[0].enemies.Array.data[1].color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6952930987734051203, guid: 7fa2591fe74eb3b4ca565d8ec730f5ff, type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[1].color.b
