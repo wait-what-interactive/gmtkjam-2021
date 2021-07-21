@@ -154,7 +154,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -> Click here to go to main menu <-
+  m_Text: -> Tap here to go to main menu <-
 --- !u!114 &5173249752108123099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -> or click here to go to main menu <-
+  m_Text: -> or tap here to go to main menu <-
 --- !u!114 &2595660824892154283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_Text: 'Game is paused
 
 
-    Click to unpause'
+    Tap to unpause'
 --- !u!1 &2595660825524904056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1571,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -> Click here to load next level <-
+  m_Text: -> Tap here to load next level <-
 --- !u!114 &2595660825524904062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,7 +1743,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -> or click here to go to main menu <-
+  m_Text: -> or tap here to go to main menu <-
 --- !u!114 &2595660825754236749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2344,7 +2344,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -> Click here to restart <-
+  m_Text: -> Tap here to restart <-
 --- !u!114 &2595660826636781785
 MonoBehaviour:
   m_ObjectHideFlags: 0
