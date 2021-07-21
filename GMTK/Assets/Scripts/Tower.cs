@@ -12,9 +12,9 @@ public class Tower : MonoBehaviour
         atackZone = GetComponentInChildren<AtackZone>();
     }
 
-    private void OnMouseOver()
+    private void OnMouseDown()
     {
-        if (Input.GetMouseButtonUp(1) && Time.timeScale > 0f)
+        if (Time.timeScale > 0f)
         {
             SoundManager.instance?.TowerDestroyPlay();
             psDestroy.Play();
