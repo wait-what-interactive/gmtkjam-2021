@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   color: yellow
+  deathParticles: {fileID: 6610901706338302070, guid: ab996110c878f934098950d87d0ca2d0, type: 3}
 --- !u!65 &5272863878059370837
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +121,10 @@ PrefabInstance:
     - target: {fileID: 6610901706338302067, guid: ab996110c878f934098950d87d0ca2d0, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6610901706338302068, guid: ab996110c878f934098950d87d0ca2d0, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab996110c878f934098950d87d0ca2d0, type: 3}

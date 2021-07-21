@@ -15,7 +15,13 @@ public class SoundManager : MonoBehaviour
     public AudioSource towerBuild;
     public AudioSource towerDestroy;
     public AudioSource shoot;
-    public AudioSource hoverButton;
+    public AudioSource buttonsSource;
+    public AudioSource baseHurt;
+    public AudioSource win;
+    public AudioSource lose;
+    public AudioSource noMoreTowers;
+
+    private List<AudioSource> sfx = new List<AudioSource>();
 
     private void Awake()
     {
@@ -28,9 +34,15 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
+        AudioSource[] sfxSource =
+        { baseHurt, buttonsSource, shoot, towerDestroy,
+            towerBuild, enemySpawn, lose, win, noMoreTowers,
+            gameMusic, menuMusic
+        };
+        sfx.AddRange(sfxSource);
     }
 
-    void Start()
+    private void Start()
     {
         //  play music 
         string currentScene = SceneManager.GetActiveScene().name;
@@ -55,7 +67,7 @@ public class SoundManager : MonoBehaviour
     {
         gameMusic.Stop();
     }
-    
+
     public void MenuMusicPlay()
     {
         menuMusic.Play();
@@ -82,12 +94,46 @@ public class SoundManager : MonoBehaviour
     {
         shoot.Play();
     }
-    public void HoverButtonPlay()
+    public void ButtonPlay(AudioClip clip)
     {
-        hoverButton.Play();
+        if (!clip)
+        {
+            buttonsSource.Stop();
+            return;
+        }
+
+        buttonsSource.clip = clip;
+        buttonsSource.Play();
     }
-    public void HoverButtonStop()
+    public void ButtonStop()
     {
-        hoverButton.Stop();
+        buttonsSource.Stop();
+    }
+    public void BaseHurtPlay()
+    {
+        baseHurt.Play();
+    }
+
+    public void WinPlay()
+    {
+        Time.timeScale = 0;
+        win.Play();
+    }
+
+    public void LosePlay()
+    {
+        Time.timeScale = 0;
+        lose.Play();
+    }
+
+    public void NoMoreTowersPlay()
+    {
+        noMoreTowers.Play();
+    }
+
+    public void ChangeVolume(float value)
+    {
+        foreach (var sfxElement in sfx)
+            sfxElement.volume = 1f - value;
     }
 }

@@ -23,15 +23,17 @@ public class Enemy : MonoBehaviour
 
     private ParticleSystem hurt;
     private Exit exit;
+    public GameObject deathParticles;
+
+    private GameObject _winText;
+
+    private LevelManager levelManager;
 
     void Start()
     {
         _maxHP = _hp;
-        //int childCount = transform.GetChild(0).childCount;
-        //color = transform.GetChild(0).GetChild(childCount - 1).GetComponent<SpriteRenderer>().color;
         hurt = GetComponentInChildren<ParticleSystem>();
-
-        exit = GameObject.FindGameObjectWithTag("exit").GetComponent<Exit>();
+        levelManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>();
     }
 
     void Update()
@@ -44,7 +46,7 @@ public class Enemy : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) < 0.3f)
             ChangeTarget();
 
-        if(!onEnd)
+        if (!onEnd)
             transform.position = Vector2.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
     }
 
@@ -54,18 +56,15 @@ public class Enemy : MonoBehaviour
         {
             hurt.Play();
             HP -= collision.gameObject.GetComponent<Bullet>().getDamage();
-            //print(collision.gameObject.GetComponent<Bullet>().getDamage());
-            //collision.gameObject.GetComponent<Bullet>().setTurget(null);
             collision.gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("BulletContainer").GetComponent<BulletPull>().addBullet(collision.gameObject);
             if (HP <= 0)
             {
-                LevelManager.enemyCount -= 1;
-                if (LevelManager.enemyCount >= 0)
-                    exit.Win();
-
+                GameObject deathPart = Instantiate(deathParticles, hurt.gameObject.transform.position, Quaternion.identity);
+                Destroy(deathPart, 0.7f);
+                levelManager.DecreaseEnemies();
                 Destroy(gameObject);
-            }        
+            }
         }
     }
 

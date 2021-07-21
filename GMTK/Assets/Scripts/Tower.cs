@@ -5,11 +5,16 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public ParticleSystem psDestroy;
-
-
-    private void OnMouseOver()
+    private AtackZone atackZone;
+    
+    private void Start() 
     {
-        if (Input.GetMouseButtonUp(1))
+        atackZone = GetComponentInChildren<AtackZone>();
+    }
+
+    private void OnMouseDown()
+    {
+        if (Time.timeScale > 0f)
         {
             SoundManager.instance?.TowerDestroyPlay();
             psDestroy.Play();
@@ -17,6 +22,7 @@ public class Tower : MonoBehaviour
             transform.parent.GetChild(0).gameObject.SetActive(true);
             gameObject.SetActive(false);
             GameObject.FindGameObjectWithTag("MagicZone").GetComponent<MagicZonesController>().CheckZones();
+            atackZone.ResetState();
         }
     }
 }

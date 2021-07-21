@@ -7,21 +7,24 @@ public class Exit : MonoBehaviour
     public PlayerStats _playerStats;
     private MainMenuManager mainMenuManager;
     private ParticleSystem ps;
+    private LevelManager levelManager;
 
-    private void Start() 
+    private void Start()
     {
         ps = GetComponentInChildren<ParticleSystem>();
         mainMenuManager = GameObject.FindGameObjectWithTag("buttons_manager").GetComponent<MainMenuManager>();
+        levelManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<LevelManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
+            SoundManager.instance?.BaseHurtPlay();
             Enemy enemy = other.GetComponent<Enemy>();
             _playerStats.TakeDamage(enemy.GetDamage());
             Destroy(other.gameObject);
-            LevelManager.enemyCount -= 1;
+            levelManager.DecreaseEnemies();
             Win();
             ps.Play();
         }
@@ -29,10 +32,7 @@ public class Exit : MonoBehaviour
 
     public void Win()
     {
-        if (_playerStats.GetHP() > 0 && LevelManager.enemyCount == 0)
-        {
+        if (_playerStats.GetHP() > 0 && levelManager.GetEnemyCount() == 0)
             mainMenuManager.Win();
-            print("you win");
-        }
     }
 }
