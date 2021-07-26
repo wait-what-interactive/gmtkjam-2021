@@ -10,11 +10,14 @@ public class MainMenuManager : MonoBehaviour
     public GameObject loseText;
     public GameObject winText;
     public GameObject nextLevelText;
+    public GameObject currLevelText;
 
     public Slider volume;
 
     private float min = 1f;
     private float max = 0f;
+    private float _biuldIndexOffset = 3;
+    private string _levelCounterDecorator = "level : ";
 
     private void Start()
     {
@@ -97,5 +100,15 @@ public class MainMenuManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("volume", slider.value);
         SoundManager.instance.ChangeVolume(slider.value);
+    }
+
+    public void OnLevelChange()
+    {
+        var levelIndex = (SceneManager.GetActiveScene().buildIndex - _biuldIndexOffset).ToString();
+
+        if (levelIndex == "0")
+            levelIndex = "tutorial".ToString();
+
+        currLevelText.GetComponent<Text>().text = _levelCounterDecorator + levelIndex;
     }
 }
