@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:GMTK/Assets/Scenes/Levels/Level0.unity.meta
 guid: dd9957ed970fa8b4c98eeca7fff51587
+=======
+guid: fd92d8df42e7b9149914826af975d234
+folderAsset: yes
+>>>>>>> dev:GMTK/Assets/Sounds/Music.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
