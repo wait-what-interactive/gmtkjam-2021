@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f19bca008e5a4f90724a5b90a2b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hover: {fileID: 8300000, guid: 366e58c8d7a602c4aae9c6f509dfb7a0, type: 3}
+  hover: {fileID: 8300000, guid: afe1cd54370e60d42be9d7154d2fa96e, type: 3}
   click: {fileID: 8300000, guid: d1949a99db54acf489de2dc19676560a, type: 3}
 --- !u!1 &566938132
 GameObject:
@@ -1251,6 +1251,7 @@ MonoBehaviour:
   loseText: {fileID: 0}
   winText: {fileID: 0}
   nextLevelText: {fileID: 0}
+  currLevelText: {fileID: 0}
   volume: {fileID: 1927285889}
 --- !u!4 &661926254
 Transform:
@@ -3396,7 +3397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f19bca008e5a4f90724a5b90a2b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hover: {fileID: 8300000, guid: 366e58c8d7a602c4aae9c6f509dfb7a0, type: 3}
+  hover: {fileID: 8300000, guid: afe1cd54370e60d42be9d7154d2fa96e, type: 3}
   click: {fileID: 8300000, guid: d1949a99db54acf489de2dc19676560a, type: 3}
 --- !u!1 &1541062795
 GameObject:
@@ -4062,7 +4063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785f19bca008e5a4f90724a5b90a2b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hover: {fileID: 8300000, guid: 366e58c8d7a602c4aae9c6f509dfb7a0, type: 3}
+  hover: {fileID: 8300000, guid: afe1cd54370e60d42be9d7154d2fa96e, type: 3}
   click: {fileID: 8300000, guid: d1949a99db54acf489de2dc19676560a, type: 3}
 --- !u!1 &1896338853
 GameObject:

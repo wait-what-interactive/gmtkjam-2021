@@ -30,9 +30,9 @@ public class MainMenuManager : MonoBehaviour
         }
 
         if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1)
-            nextLevelText.SetActive(false);
+            nextLevelText?.SetActive(false);
         else
-            nextLevelText.SetActive(true);
+            nextLevelText?.SetActive(true);
 
     }
 
