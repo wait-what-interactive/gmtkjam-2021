@@ -29,11 +29,13 @@ public class MainMenuManager : MonoBehaviour
             volume.value = PlayerPrefs.GetFloat("volume", max);
         }
 
-        if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1)
-            nextLevelText?.SetActive(false);
-        else
-            nextLevelText?.SetActive(true);
-
+        if (nextLevelText != null) 
+        {
+            if (SceneManager.sceneCountInBuildSettings == SceneManager.GetActiveScene().buildIndex + 1)
+                nextLevelText.SetActive(false);
+            else
+                nextLevelText.SetActive(true);
+        }
     }
 
     private IEnumerator Delay(float delay, GameObject show, System.Action func)
